@@ -26,11 +26,9 @@ defmodule Pxblog.User do
   end
 
   defp hash_password(changeset) do
-    if password = get_change(changeset, :password) do
-      changeset
-      |> put_change(:password_digest, hashpwsalt(password))
-    else
-      changeset
+    case get_change(changeset, :password) do 
+      nil -> changeset
+      password -> changeset |> put_change(:password_digest, hashpwsalt(password))
     end
   end
 end
