@@ -18,3 +18,7 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+
+## Upto
+https://medium.com/@diamondgfx/introduction-fe138ac6079d#.bkn34hp96
+Now, we’re going to want to work on the hash_password function that we added
