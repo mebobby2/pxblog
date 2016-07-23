@@ -15,4 +15,9 @@ defmodule Pxblog.UserTest do
     changeset = User.changeset(%User{}, @invalid_attrs)
     refute changeset.valid?
   end
+
+  test "password_digest value gets set to hash" do
+    changeset = User.changeset(%User{}, @valid_attrs)
+    assert get_change(changeset, :password_digest) == "ABCDE"
+  end
 end
