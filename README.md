@@ -21,4 +21,6 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 
 ## Upto
 https://medium.com/@diamondgfx/introduction-fe138ac6079d#.bkn34hp96
-Now, we’re going to want to work on the hash_password function that we added
+
+
+We start off with our standard setup block, and write a pretty standard assertion for a get request. The creation bits are where this starts to get more interesting
