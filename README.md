@@ -20,7 +20,4 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Source: https://github.com/phoenixframework/phoenix
 
 ## Upto
-https://medium.com/@diamondgfx/introduction-fe138ac6079d#.bkn34hp96
-
-
-We start off with our standard setup block, and write a pretty standard assertion for a get request. The creation bits are where this starts to get more interesting
+https://medium.com/@diamondgfx/writing-a-blog-engine-in-phoenix-part-2-authorization-814c06fa7c0#.2rhrffdet
