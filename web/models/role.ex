@@ -2,6 +2,8 @@ defmodule Pxblog.Role do
   use Pxblog.Web, :model
 
   schema "roles" do
+    has_many :users, Pxblog.User
+
     field :name, :string
     field :admin, :boolean, default: false
 
