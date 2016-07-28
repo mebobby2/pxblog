@@ -20,4 +20,4 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Source: https://github.com/phoenixframework/phoenix
 
 ## Upto
-https://medium.com/@diamondgfx/writing-a-blog-engine-in-phoenix-and-elixir-part-3-adding-roles-to-our-models-3be45a4afe4b#.axopr5cir
+https://medium.com/@diamondgfx/writing-a-blog-engine-in-phoenix-and-elixir-part-4-adding-roles-to-our-controllers-9f4678b48468#.t7lm8qa63
