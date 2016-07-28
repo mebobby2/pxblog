@@ -20,6 +20,4 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Source: https://github.com/phoenixframework/phoenix
 
 ## Upto
-https://medium.com/@diamondgfx/writing-a-blog-engine-in-phoenix-part-2-authorization-814c06fa7c0#.2rhrffdet
-
-Unfortunately, we have to go in and change every instance of post_path to user_post_path again. And, in order
+https://medium.com/@diamondgfx/writing-a-blog-engine-in-phoenix-and-elixir-part-3-adding-roles-to-our-models-3be45a4afe4b#.axopr5cir
