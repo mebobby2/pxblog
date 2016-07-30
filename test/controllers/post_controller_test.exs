@@ -99,7 +99,7 @@ defmodule Pxblog.PostControllerTest do
 
   test "renders form for editing chosen resource when logged in as admin", %{conn: conn, user: user, post: post} do
     role = insert(:role, %{name: "Admin", admin: true})
-    admin = insert(:user, %{role: role, username: "admin", email: "admin@test.com", password: "test", password_confirmation: "test"})
+    admin = insert(:user, %{role: role})
     conn = 
       login_user(conn, admin)
       |> get(user_post_path(conn, :edit, user, post))
@@ -108,8 +108,8 @@ defmodule Pxblog.PostControllerTest do
 
 
   test "updates chosen resource and redirects when data is valid when logged in as admin", %{conn: conn, user: user, post: post} do
-    {:ok, role}  = TestHelper.create_role(%{name: "Admin", admin: true})
-    {:ok, admin} = TestHelper.create_user(role, %{username: "admin", email: "admin@test.com", password: "test", password_confirmation: "test"})
+    role = insert(:role, %{name: "Admin", admin: true})
+    admin = insert(:user, %{role: role})
     conn =
       login_user(conn, admin)
       |> put(user_post_path(conn, :update, user, post), post: @valid_attrs)
@@ -118,8 +118,8 @@ defmodule Pxblog.PostControllerTest do
   end
 
   test "does not update chosen resource and renders errors when data is invalid when logged in as admin", %{conn: conn, user: user, post: post} do
-    {:ok, role}  = TestHelper.create_role(%{name: "Admin", admin: true})
-    {:ok, admin} = TestHelper.create_user(role, %{username: "admin", email: "admin@test.com", password: "test", password_confirmation: "test"})
+    role = insert(:role, %{name: "Admin", admin: true})
+    admin = insert(:user, %{role: role})
     conn =
       login_user(conn, admin)
       |> put(user_post_path(conn, :update, user, post), post: %{"body" => nil})
@@ -127,8 +127,8 @@ defmodule Pxblog.PostControllerTest do
   end
 
   test "deletes chosen resource when logged in as admin", %{conn: conn, user: user, post: post} do
-    {:ok, role}  = TestHelper.create_role(%{name: "Admin", admin: true})
-    {:ok, admin} = TestHelper.create_user(role, %{username: "admin", email: "admin@test.com", password: "test", password_confirmation: "test"})
+    role = insert(:role, %{name: "Admin", admin: true})
+    admin = insert(:user, %{role: role})
     conn =
       login_user(conn, admin)
       |> delete(user_post_path(conn, :delete, user, post))

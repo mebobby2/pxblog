@@ -5,7 +5,7 @@ defmodule Pxblog.UserControllerTest do
 
   alias Pxblog.User
 
-  @valid_create_attrs %{email: "test@test.com", username: "test", password: "test", password_confirmation: "test"}
+  @valid_create_attrs %{email: "test@test.com", username: "test", password: "test123", password_confirmation: "test123"}
   @valid_attrs %{email: "test@test.com", username: "test"}
   @invalid_attrs %{}
 
@@ -141,7 +141,7 @@ defmodule Pxblog.UserControllerTest do
 
   @tag admin: true
   test "deletes chosen resource when logged in as that user", %{conn: conn, user_role: user_role} do
-    {:ok, user} = TestHelper.create_user(user_role, @valid_create_attrs)
+    user = insert(:user, Map.merge(%{role: user_role}, @valid_create_attrs))
     conn =
       login_user(conn, user)
       |> delete(user_path(conn, :delete, user))
