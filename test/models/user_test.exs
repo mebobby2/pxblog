@@ -1,7 +1,6 @@
 defmodule Pxblog.UserTest do
   use Pxblog.ModelCase
 
-  alias Pxblog.TestHelper
   alias Pxblog.User
 
   @valid_attrs %{email: "some content", password: "test1234", password_confirmation: "test1234", username: "some content"}

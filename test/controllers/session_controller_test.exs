@@ -2,7 +2,6 @@ defmodule Pxblog.SessionControllerTest do
   use Pxblog.ConnCase
 
   alias Pxblog.User
-  alias Pxblog.TestHelper
 
   setup do
     {:ok, role} = TestHelper.create_role(%{name: "User", admin: false})

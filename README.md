@@ -21,3 +21,5 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 
 ## Upto
 https://medium.com/@diamondgfx/mixology-exmachina-92a08dc3e954#.unitzpy11
+
+Beyond this point, everything else is just grunt-work; going back in and replacing calls to TestHelper with Factory calls instead. It’s nothing particularly new or exciting, so I won’t bother with the excruciating details for each.

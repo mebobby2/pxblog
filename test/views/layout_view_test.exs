@@ -2,7 +2,6 @@ defmodule Pxblog.LayoutViewTest do
   use Pxblog.ConnCase, async: true
 
   alias Pxblog.LayoutView 
-  alias Pxblog.TestHelper
 
   setup do
     {:ok, role} = TestHelper.create_role(%{name: "User Role", admin: false})

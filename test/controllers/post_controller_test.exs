@@ -1,16 +1,17 @@
 defmodule Pxblog.PostControllerTest do
   use Pxblog.ConnCase
 
+  import Pxblog.Factory
+
   alias Pxblog.Post
-  alias Pxblog.TestHelper
 
   @valid_attrs %{body: "some content", title: "some content"}
   @invalid_attrs %{}
 
   setup do
-    {:ok, role} = TestHelper.create_role(%{name: "User Role", admin: false})
-    {:ok, user} = TestHelper.create_user(role, %{email: "test@test.com", username: "testuser", password: "test", password_confirmation: "test"})
-    {:ok, post} = TestHelper.create_post(user, %{title: "Test Post", body: "Test Body"})
+    role = insert(:role)
+    user = insert(:user, role: role)
+    post = insert(:post, user: user)
     conn = build_conn() |> login_user(user)
     {:ok, conn: conn, user: user, role: role, post: post}
   end
@@ -81,7 +82,7 @@ defmodule Pxblog.PostControllerTest do
   end
 
   test "redirects when trying to edit a post for a different user", %{conn: conn, role: role, post: post} do
-    {:ok, other_user} = TestHelper.create_user(role, %{email: "test2@test.com", username: "test2", password: "test", password_confirmation: "test"})
+    other_user = insert(:user, %{role: role, email: "test2@test.com", username: "test2", password: "test", password_confirmation: "test"})
     conn = get conn, user_post_path(conn, :edit, other_user, post)
     assert get_flash(conn, :error) == "You are not authorized to modify that post!"
     assert redirected_to(conn) == page_path(conn, :index)
@@ -89,7 +90,7 @@ defmodule Pxblog.PostControllerTest do
   end
 
   test "redirects when trying to delete a post for a different user", %{conn: conn, role: role, post: post} do
-    {:ok, other_user} = TestHelper.create_user(role, %{email: "test2@test.com", username: "test2", password: "test", password_confirmation: "test"})
+    other_user = insert(:user, %{role: role, email: "test2@test.com", username: "test2", password: "test", password_confirmation: "test"})
     conn = delete conn, user_post_path(conn, :delete, other_user, post)
     assert get_flash(conn, :error) == "You are not authorized to modify that post!"
     assert redirected_to(conn) == page_path(conn, :index)
@@ -97,8 +98,8 @@ defmodule Pxblog.PostControllerTest do
   end
 
   test "renders form for editing chosen resource when logged in as admin", %{conn: conn, user: user, post: post} do
-    {:ok, role} = TestHelper.create_role(%{name: "Admin", admin: true})
-    {:ok, admin} = TestHelper.create_user(role, %{username: "admin", email: "admin@test.com", password: "test", password_confirmation: "test"})
+    role = insert(:role, %{name: "Admin", admin: true})
+    admin = insert(:user, %{role: role, username: "admin", email: "admin@test.com", password: "test", password_confirmation: "test"})
     conn = 
       login_user(conn, admin)
       |> get(user_post_path(conn, :edit, user, post))

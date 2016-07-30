@@ -1,6 +1,5 @@
 defmodule Pxblog.RoleCheckerTest do
   use Pxblog.ModelCase
-  alias Pxblog.TestHelper
   alias Pxblog.RoleChecker
 
   test "is_admin? is true when user has an admin role" do
