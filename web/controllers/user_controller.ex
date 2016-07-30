@@ -68,7 +68,7 @@ defmodule Pxblog.UserController do
 
   defp authorize_user(conn, _) do
     user = get_session(conn, :current_user)
-    if user && (Intger.to_string(user.id) == conn.params["id"]) || Pxblog.RoleChecker.is_admin?(user) do
+    if user && (Integer.to_string(user.id) == conn.params["id"]) || Pxblog.RoleChecker.is_admin?(user) do
       conn
     else
       conn
