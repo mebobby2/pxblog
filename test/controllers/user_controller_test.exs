@@ -1,8 +1,6 @@
 defmodule Pxblog.UserControllerTest do
   use Pxblog.ConnCase
 
-  import Pxblog.Factory
-
   alias Pxblog.User
 
   @valid_create_attrs %{email: "test@test.com", username: "test", password: "test1234", password_confirmation: "test1234"}

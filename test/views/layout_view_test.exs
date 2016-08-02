@@ -3,8 +3,6 @@ defmodule Pxblog.LayoutViewTest do
 
   alias Pxblog.LayoutView 
 
-  import Pxblog.Factory
-
   setup do
     role = insert(:role, %{name: "User Role"})
     user = insert(:user, %{role: role, email: "test@test.com", username: "testuser"})

@@ -1,8 +1,6 @@
 defmodule Pxblog.PostControllerTest do
   use Pxblog.ConnCase
 
-  import Pxblog.Factory
-
   alias Pxblog.Post
 
   @valid_attrs %{body: "some content", title: "some content"}
