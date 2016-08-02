@@ -3,9 +3,11 @@ defmodule Pxblog.LayoutViewTest do
 
   alias Pxblog.LayoutView 
 
+  import Pxblog.Factory
+
   setup do
-    {:ok, role} = TestHelper.create_role(%{name: "User Role", admin: false})
-    {:ok, user} = TestHelper.create_user(role, %{email: "test@test.com", username: "testuser", password: "test", password_confirmation: "test"})
+    role = insert(:role, %{name: "User Role"})
+    user = insert(:user, %{role: role, email: "test@test.com", username: "testuser"})
     {:ok, conn: build_conn(), user: user}
   end
 

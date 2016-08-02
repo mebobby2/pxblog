@@ -3,11 +3,13 @@ defmodule Pxblog.UserTest do
 
   alias Pxblog.User
 
+  import Pxblog.Factory
+
   @valid_attrs %{email: "some content", password: "test1234", password_confirmation: "test1234", username: "some content"}
   @invalid_attrs %{}
 
   setup do
-    {:ok, role} = TestHelper.create_role(%{name: "user", admin: false})
+    role = insert(:role, %{name: "user"}) 
     {:ok, role: role}
   end
 
