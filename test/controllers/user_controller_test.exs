@@ -5,7 +5,7 @@ defmodule Pxblog.UserControllerTest do
 
   alias Pxblog.User
 
-  @valid_create_attrs %{email: "test@test.com", username: "test", password: "test123", password_confirmation: "test123"}
+  @valid_create_attrs %{email: "test@test.com", username: "test", password: "test1234", password_confirmation: "test1234"}
   @valid_attrs %{email: "test@test.com", username: "test"}
   @invalid_attrs %{}
 
@@ -17,6 +17,10 @@ defmodule Pxblog.UserControllerTest do
     admin_user = insert(:user, role: admin_role)
 
     {:ok, conn: build_conn(), admin_role: admin_role, user_role: user_role, nonadmin_user: nonadmin_user, admin_user: admin_user}
+  end
+
+  defp valid_create_attrs(role) when is_integer(role) do
+    Map.put(@valid_create_attrs, :role_id, role)
   end
 
   defp valid_create_attrs(role) do
@@ -51,7 +55,7 @@ defmodule Pxblog.UserControllerTest do
   @tag admin: true
   test "creates resource and redirects when data is valid", %{conn: conn, user_role: user_role, admin_user: admin_user} do
     conn = login_user(conn, admin_user)
-    conn = post conn, user_path(conn, :create), user: valid_create_attrs(user_role)
+    conn = post conn, user_path(conn, :create), user: valid_create_attrs(user_role.id)
     assert redirected_to(conn) == user_path(conn, :index)
     assert Repo.get_by(User, @valid_attrs)
   end
