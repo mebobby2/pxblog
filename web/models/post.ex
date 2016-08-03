@@ -15,7 +15,8 @@ defmodule Pxblog.Post do
   """
   def changeset(model, params \\ :empty) do
     model
-    |> cast(params, @required_fields, @optional_fields)
+    |> cast(params, [:title, :body])
+    |> validate_required([:title, :body])
     |> strip_unsafe_body(params)
   end
 
