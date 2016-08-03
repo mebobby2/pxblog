@@ -13,7 +13,7 @@ defmodule Pxblog.Post do
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
-  def changeset(model, params \\ :empty) do
+  def changeset(model, params \\ %{}) do
     model
     |> cast(params, [:title, :body])
     |> validate_required([:title, :body])
