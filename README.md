@@ -21,3 +21,6 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 
 ## Upto
 https://medium.com/@diamondgfx/writing-a-blog-engine-in-phoenix-and-elixir-part-7-adding-comments-support-7dfc17dd474e#.acnd95ujs
+
+Adding A Comments Display To Our Posts
+
