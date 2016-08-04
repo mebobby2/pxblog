@@ -2,10 +2,11 @@ defmodule Pxblog.Post do
   use Pxblog.Web, :model
 
   schema "posts" do
-    belongs_to :user, Pxblog.User
-
     field :title, :string
     field :body, :string
+
+    belongs_to :user, Pxblog.User
+    has_many :comments, Pxblog.Comment
 
     timestamps()
   end

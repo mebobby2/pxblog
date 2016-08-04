@@ -15,4 +15,9 @@ defmodule Pxblog.CommentTest do
     changeset = Comment.changeset(%Comment{}, @invalid_attrs)
     refute changeset.valid?
   end
+
+  test "cretes a comment associated with a post" do
+    comment = insert(:comment)
+    assert comment.post_id
+  end
 end
