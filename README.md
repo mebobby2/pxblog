@@ -20,7 +20,5 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Source: https://github.com/phoenixframework/phoenix
 
 ## Upto
-https://medium.com/@diamondgfx/writing-a-blog-engine-in-phoenix-and-elixir-part-7-adding-comments-support-7dfc17dd474e#.acnd95ujs
-
-Adding A Comments Display To Our Posts
+https://medium.com/elixir-magic/writing-a-blog-engine-in-phoenix-and-elixir-part-8-finishing-comments-30ff95d44cea#.nnxslxx04
 
