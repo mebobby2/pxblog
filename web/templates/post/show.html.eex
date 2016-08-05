@@ -14,7 +14,8 @@
 
 </ul>
 
-<%= render Pxblog.CommentView, "form.html", changeset: @comment_changeset, action: post_comment_path(@conn, :create, @post) %>
+<hr>
+
 
 <div class="comments">
   <h2>Comments</h2>
@@ -22,6 +23,10 @@
     <%= render Pxblog.CommentView, "comment.html", comment: comment %>
   <% end %>
 </div>
+
+<hr>
+
+<%= render Pxblog.CommentView, "form.html", changeset: @comment_changeset, action: post_comment_path(@conn, :create, @post) %>
 
 <%= link "Edit", to: user_post_path(@conn, :edit, @user, @post) %>
 <%= link "Back", to: user_post_path(@conn, :index, @user) %>
