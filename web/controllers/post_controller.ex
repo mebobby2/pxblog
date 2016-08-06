@@ -95,8 +95,7 @@ defmodule Pxblog.PostController do
   end
 
   defp authorize_user(conn, _opts) do
-    user = get_session(conn, :current_user)
-    if user && (Integer.to_string(user.id) == conn.params["user_id"] || Pxblog.RoleChecker.is_admin?(user)) do
+    if is_authorized_user?(conn) do
       conn
     else
       conn 
@@ -104,5 +103,10 @@ defmodule Pxblog.PostController do
       |> redirect(to: page_path(conn, :index))
       |> halt()
     end
+  end
+
+  defp is_authorized_user?(conn) do
+    user = get_session(conn, :current_user)
+    (user && (Integer.to_string(user.id) == conn.params["user_id"] || Pxblog.RoleChecker.is_admin?(user)))
   end
 end
