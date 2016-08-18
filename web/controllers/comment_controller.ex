@@ -26,7 +26,7 @@ defmodule Pxblog.CommentController do
   defp is_authorized_user?(conn) do
     user = get_session(conn, :current_user)
     post = conn.assigns[:post]
-    user && (user.id == post.user_id) || Pxblog.RoleChecker.is_admin?(user)
+    user && ((user.id == post.user_id) || Pxblog.RoleChecker.is_admin?(user))
   end
 
   plug :scrub_params, "comment" when action in [:create, :update]
