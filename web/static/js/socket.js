@@ -7,7 +7,9 @@ import {Socket} from "phoenix"
 
 import $ from "jquery"
 
-let socket = new Socket("/socket", {params: {token: window.userToken}})
+const userToken = $("meta[name='channel_token']").attr("content")
+
+const socket = new Socket("/socket", {params: {token: userToken}})
 
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,
