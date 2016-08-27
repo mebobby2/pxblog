@@ -75,7 +75,7 @@ exports.config = {
     enabled: true,
     globals: {
       $: 'jquery',
-      jQuery: 'jeuery'
+      jQuery: 'jquery'
     }
   }
 };
