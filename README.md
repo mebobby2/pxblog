@@ -22,4 +22,4 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 ## Upto
 https://medium.com/elixir-magic/writing-a-blog-engine-in-phoenix-and-elixir-part-11-better-ui-f17f3d7efa85#.mepjqvq8c
 
-Installing Foundation Icons/Fonts
+Changing Our Application Layout To Use Our Partials
