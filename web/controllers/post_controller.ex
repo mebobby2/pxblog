@@ -4,11 +4,24 @@ defmodule Pxblog.PostController do
   alias Pxblog.Post
 
   plug :authorize_user when action in [:new, :create, :update, :edit, :delete]
-  plug :assign_user
+  plug :assign_user when not action in [:index]
   plug :set_authorization_flag
 
+  def index(conn, %{"user_id" => _user_id}) do
+    conn = assign_user(conn, nil)
+    if conn.assigns[:user] do
+      posts = Repo.all(assoc(conn.assigns[:user], :posts)) |> Repo.preload(:user)
+      render(conn, "index.html", posts: posts)
+    else
+      conn
+    end
+  end
+
   def index(conn, _params) do
-    posts = Repo.all(assoc(conn.assigns[:user], :posts))
+    posts = Repo.all(from p in Post,
+                      limit: 5,
+                      order_by: [desc: :inserted_at],
+                      preload: [:user])
     render(conn, "index.html", posts: posts)
   end
 
