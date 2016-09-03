@@ -20,6 +20,5 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
   * Source: https://github.com/phoenixframework/phoenix
 
 ## Upto
-https://medium.com/elixir-magic/writing-a-blog-engine-in-phoenix-and-elixir-part-11-better-ui-f17f3d7efa85#.mepjqvq8c
 
-Changing Our Application Layout To Use Our Partials
+Finished, but figure out why foundation styles are not applied
